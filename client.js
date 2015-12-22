@@ -39,6 +39,7 @@
 //console.log(querystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' }));
 
 //example5 压缩处理服务器返回的数据
+var http = require("http");
 var options = {
     hostname: "127.0.0.1",
     port: 8888,
