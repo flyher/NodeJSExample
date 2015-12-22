@@ -43,15 +43,16 @@ var http = require("http");
 var options = {
     hostname: "127.0.0.1",
     port: 8888,
-    path: "/",
+    path: "",
     method: "GET",
     headers: {
-        "appect-encoding": "gzip,deflate"
+        "Accept-Encoding": "gzip,deflate"
     }
 };
 http.request(options, function (response) {
     var body = [];
     response.on("data", function (chunk) {
+        //console.log(chunk);
         body.push(chunk);
     });
     response.on("end", function () {
