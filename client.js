@@ -17,7 +17,7 @@
 
 //example 
 //var http = require("http");
-//http.get("http://www.meihua.info", function (response) {
+//http.get("http://www.baidu.com", function (response) {
 //    var body = [];
 //    console.log(response.statusCode);
 
