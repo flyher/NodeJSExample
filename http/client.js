@@ -39,31 +39,65 @@
 //console.log(querystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' }));
 
 //example5 压缩处理服务器返回的数据
+//var http = require("http");
+//var options = {
+//    hostname: "127.0.0.1",
+//    port: 8888,
+//    path: "",
+//    method: "GET",
+//    headers: {
+//        "Accept-Encoding": "gzip,deflate"
+//    }
+//};
+//http.request(options, function (response) {
+//    var body = [];
+//    response.on("data", function (chunk) {
+//        //console.log(chunk);
+//        body.push(chunk);
+//    });
+//    response.on("end", function () {
+//        body = Buffer.concat(body);
+//        if (response.headers["content-encoding"]==="gzip") {
+//            zlib.gunzip(body, function (err,data) {
+//                console.log(data.toString());
+//            });
+//        } else {
+//            console.log(data.toString());
+//        }
+//    });
+
+//});
+
+//example6 理解
 var http = require("http");
+var zlib = require("zlib");
 var options = {
     hostname: "127.0.0.1",
-    port: 8888,
-    path: "",
-    method: "GET",
+    port: "8888",
+    path: "/",
+    method: "get",
     headers: {
-        "Accept-Encoding": "gzip,deflate"
+        "accept-encoding":"gzip,deflate"
     }
 };
 http.request(options, function (response) {
     var body = [];
+    console.log(response);
     response.on("data", function (chunk) {
-        //console.log(chunk);
+        console.log(chunk);
         body.push(chunk);
-    });
+    })
     response.on("end", function () {
         body = Buffer.concat(body);
-        if (response.headers["content-encoding"]==="gzip") {
-            zlib.gunzip(body, function (err,data) {
+        console.log(body);
+        if (response.headers["content-encoding"] === "gzip") {
+            zlib.gunzip(body, function (err, data) {
                 console.log(data.toString());
             });
         } else {
             console.log(data.toString());
         }
-    });
+    }).end();
 
+    //response.o
 });

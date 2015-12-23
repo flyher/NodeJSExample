@@ -1,0 +1,26 @@
+﻿//var net = require("net");
+//net.createServer(function (conn) {
+//    conn.on("data", function (data) {
+//        conn.write([
+//            "HTTP/1.1 200 OK",
+//            "Content-Type:text/plain",
+//            "Content-Length:11",
+//            "",
+//            "Hello World"
+//        ].join("\n"));
+//    });
+//}).listen(8888);
+
+//example2 socket
+var net = require("net");
+net.createServer(function (conn) {
+    conn.on("data", function (data) {
+        conn.write([
+            "HTTP/1.1 200 OK",
+            "content-type:text/plain",
+            "content-length:11",
+            "",
+            "hello wrlsadasdasdsad"
+        ].join("\n"));
+    });
+}).listen(8888);
